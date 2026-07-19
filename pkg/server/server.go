@@ -4,6 +4,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"go_final_project/pkg/api"
 )
 
 const defaultPort = "7540"
@@ -14,6 +16,7 @@ func Run() error {
 		port = defaultPort
 	}
 
+	api.Init()
 	http.Handle("/", http.FileServer(http.Dir("web")))
 
 	log.Printf("Server started on http://localhost:%s", port)
