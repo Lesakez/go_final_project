@@ -57,7 +57,7 @@ func NextDate(now time.Time, dstart string, repeat string) (string, error) {
 }
 
 func afterNow(date, now time.Time) bool {
-	return date.After(now)
+	return date.Format(dateFormat) > now.Format(dateFormat)
 }
 
 func nextDateHandler(w http.ResponseWriter, r *http.Request) {
